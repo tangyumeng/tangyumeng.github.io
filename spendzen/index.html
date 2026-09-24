@@ -1,19 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SpendZen</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 40rem; margin: 2.5rem auto; padding: 0 1.25rem; line-height: 1.55; color: #1c1c1e; }
-    h1 { font-size: 1.6rem; }
-    a { color: #0b6b3a; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendZen — What you can safely spend today</title>
+    <meta name="description" content="SpendZen is an iPhone app that shows one number: what you can safely spend today. Your ledger stays on your device.">
+    <meta name="keywords" content="safe to spend, daily budget, anti-budgeting, iPhone expense, spend today, SpendZen">
+    <link rel="canonical" href="https://tangyumeng.github.io/spendzen/">
+    <meta property="og:title" content="SpendZen — What you can safely spend today">
+    <meta property="og:description" content="One number for today. Monthly pool minus fixed bills, divided across the cycle. The ledger never leaves your iPhone.">
+    <meta property="og:url" content="https://tangyumeng.github.io/spendzen/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://tangyumeng.github.io/spendzen/assets/logo.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SpendZen — What you can safely spend today">
+    <meta name="twitter:description" content="One number for today. The ledger stays on your iPhone.">
+    <meta name="twitter:image" content="https://tangyumeng.github.io/spendzen/assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F6F7F4; color: #142018; }
+    </style>
 </head>
-<body>
-  <h1>SpendZen</h1>
-  <p>SpendZen shows one number: what you can safely spend today. Your ledger stays on your iPhone. There is no account to sign in to.</p>
-  <p>SpendZen 只显示一个数：今天还能安心花多少。账本只存在你的 iPhone 上，不需要注册账号。</p>
-  <p><a href="privacy/">Privacy Policy 隐私政策</a></p>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <header class="w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center">
+        <a href="./" class="flex items-center gap-3">
+            <img src="assets/logo.png" alt="SpendZen" class="w-11 h-11 rounded-xl shadow-sm">
+            <span class="font-bold text-xl tracking-tight">SpendZen</span>
+        </a>
+        <nav class="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm font-medium text-gray-500">
+            <a href="#how" class="hover:text-gray-900">How it works</a>
+            <a href="#features" class="hover:text-gray-900">Features</a>
+            <a href="#faq" class="hover:text-gray-900">FAQ</a>
+        </nav>
+    </header>
+
+    <main class="flex-grow">
+        <section class="max-w-5xl mx-auto px-6 pt-10 pb-20 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-sm font-medium mb-8 border border-emerald-100">
+                For iPhone · iOS 18
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 max-w-4xl mx-auto">
+                One number. <span class="text-emerald-700">What you can spend today.</span>
+            </h1>
+            <p class="text-xl text-gray-500 mb-3 max-w-2xl mx-auto leading-relaxed">
+                SpendZen does not audit last month. It turns your monthly pool, after fixed bills, into today’s safe-to-spend amount.
+            </p>
+            <p class="text-base text-gray-400 mb-10 max-w-2xl mx-auto">
+                只关心一个数：今天还能安心花多少。账本只在这台 iPhone 上。
+            </p>
+            <p class="text-sm text-gray-400">Coming to the App Store. No account required.</p>
+
+            <div class="mt-16 mx-auto max-w-sm rounded-[28px] bg-[#0e1214] text-left text-white p-8 shadow-2xl border border-black/10">
+                <p class="text-[11px] tracking-[0.18em] text-emerald-400 font-semibold">SAFE TO SPEND</p>
+                <p class="mt-6 text-sm text-white/50">Example</p>
+                <p class="text-6xl font-extrabold tracking-tight leading-none mt-1">133.3</p>
+                <p class="mt-6 text-sm text-white/60 leading-relaxed">A 7,500 pool minus 3,500 in fixed bills, across a 30-day cycle. The home screen shows 133.3, not 7,500.</p>
+            </div>
+        </section>
+
+        <section id="how" class="w-full max-w-5xl mx-auto px-6 py-20 border-t border-gray-200">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <p class="text-sm font-semibold text-emerald-700 uppercase tracking-wide mb-3">How the number is made</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">Pool, minus bills, divided by the cycle.</h2>
+                <p class="text-lg text-gray-500 leading-relaxed">今天的额度 =（月度总盘 − 固定开支）÷ 这个周期的天数。</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <p class="text-sm font-semibold text-emerald-700 mb-2">1</p>
+                    <h3 class="text-xl font-bold mb-3">Monthly pool</h3>
+                    <p class="text-gray-500 leading-relaxed">The money you can freely spend this billing cycle. Not your salary, and not the number on the home screen.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <p class="text-sm font-semibold text-emerald-700 mb-2">2</p>
+                    <h3 class="text-xl font-bold mb-3">Fixed bills</h3>
+                    <p class="text-gray-500 leading-relaxed">Rent and subscriptions are removed before the daily number is calculated. Do not log them again, or the same bill is counted twice.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <p class="text-sm font-semibold text-emerald-700 mb-2">3</p>
+                    <h3 class="text-xl font-bold mb-3">Today</h3>
+                    <p class="text-gray-500 leading-relaxed">Each expense lowers today’s number. Unspent money can go to Dream Stash, spread over the days left, or reset tomorrow.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="w-full max-w-5xl mx-auto px-6 py-20 border-t border-gray-200">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <p class="text-sm font-semibold text-emerald-700 uppercase tracking-wide mb-3">Features</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">A small ledger around one decision.</h2>
+                <p class="text-lg text-gray-500">记一笔、改、删、补记到某一天。不用再打开另一本账。</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Log, edit, delete</h3>
+                    <p class="text-gray-500 leading-relaxed">Tap Log Spend, pick a category, and confirm. Open an entry to change it or delete it. A fresh entry can be undone from the banner.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Calendar</h3>
+                    <p class="text-gray-500 leading-relaxed">Tap a day and that day’s entries open under the month. Backfill onto that day instead of dumping it onto today.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Home Screen widget</h3>
+                    <p class="text-gray-500 leading-relaxed">The widget shows the same number as Today. −5, −15, and −30 queue a real expense and count toward the free entry limit.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Dream Stash</h3>
+                    <p class="text-gray-500 leading-relaxed">Money you didn’t spend can sit aside for something you actually want. One goal is free. Pro adds more.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Face ID</h3>
+                    <p class="text-gray-500 leading-relaxed">Optional lock for the daily number. iOS does the authentication. SpendZen never receives your biometric data.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">SpendZen Pro</h3>
+                    <p class="text-gray-500 leading-relaxed">A one-time purchase. Free covers 100 entries, one wish, and the default theme. Pro removes the entry limit and adds export, more themes, and more wishes. No subscription.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full max-w-5xl mx-auto px-6 py-20 border-t border-gray-200">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-sm font-semibold text-emerald-700 uppercase tracking-wide mb-3">On this iPhone</p>
+                    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">The ledger does not have an account.</h2>
+                    <p class="text-lg text-gray-500 leading-relaxed mb-6">Expenses, fixed bills, and wishes stay in the app. The widget reads a snapshot from an App Group shared only with SpendZen. Deleting the app deletes the ledger.</p>
+                    <a href="privacy/" class="text-emerald-700 font-semibold hover:text-emerald-800">Read the privacy policy →</a>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <ul class="space-y-4 text-gray-600">
+                        <li>No analytics SDK and no ads.</li>
+                        <li>No server copy of your spending.</li>
+                        <li>CSV and JSON export is a Pro feature, and the file leaves the phone only when you share it.</li>
+                        <li>Purchases are handled by Apple. SpendZen does not see your card.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="w-full max-w-5xl mx-auto px-6 py-20 border-t border-gray-200">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <p class="text-sm font-semibold text-emerald-700 uppercase tracking-wide mb-3">FAQ</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Before you trust the number.</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <h3 class="font-bold text-lg mb-2">Why isn’t the home screen my monthly pool?</h3>
+                    <p class="text-gray-500 leading-relaxed">Home shows what’s left after fixed bills, split across the cycle. 7,500 with 3,500 in bills is a 4,000 pool, then about 133 a day in a 30-day cycle.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <h3 class="font-bold text-lg mb-2">What if the month has no 31st?</h3>
+                    <p class="text-gray-500 leading-relaxed">A cycle start of the 29th, 30th, or 31st clamps to the last day of a shorter month, then returns to your chosen day when the month is long enough.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <h3 class="font-bold text-lg mb-2">Can I delete an entry?</h3>
+                    <p class="text-gray-500 leading-relaxed">Open the entry and choose Delete this entry. You can also long-press the row. Today’s number updates immediately.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <h3 class="font-bold text-lg mb-2">What happens if I delete the app?</h3>
+                    <p class="text-gray-500 leading-relaxed">The ledger is gone. There is no account to restore it. Export a backup first if you have Pro.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full bg-white border-t border-gray-200 py-10 mt-auto">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-400 text-sm">© 2026 SpendZen.</p>
+            <div class="flex gap-6 text-sm text-gray-500">
+                <a href="support/" class="hover:text-gray-900">Support</a>
+                <a href="privacy/" class="hover:text-gray-900">Privacy</a>
+                <a href="terms/" class="hover:text-gray-900">Terms</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
